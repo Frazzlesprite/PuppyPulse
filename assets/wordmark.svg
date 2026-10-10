@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 184" role="img" aria-labelledby="pwT pwD">
+  <title id="pwT">PuppyPulse wordmark</title>
+  <desc id="pwD">PuppyPulse wordmark with the Puppy Health Tracker tagline and a pulse line, all three the same width.</desc>
+  <text x="-1.75" y="84" textLength="440" lengthAdjust="spacingAndGlyphs"
+        font-family="Poppins, Nunito, 'Segoe UI', system-ui, sans-serif"
+        font-size="80" font-weight="800" letter-spacing="-2"><tspan fill="#16233F">Puppy</tspan><tspan fill="#0EA5E9">Pulse</tspan></text>
+  <text x="1" y="132" textLength="444" lengthAdjust="spacingAndGlyphs"
+        font-family="Poppins, Nunito, 'Segoe UI', system-ui, sans-serif"
+        font-size="22" font-weight="700" letter-spacing="5.2" fill="#64748B">PUPPY HEALTH TRACKER</text>
+  <polyline points="5,160 160.1,160 177.8,146 203.3,172 226.8,148 244.5,160 435,160"
+            fill="none" stroke="#FF4D6D" stroke-width="6"
+            stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
