@@ -69,7 +69,14 @@
     <h2>What stays on your device</h2>
     <ul>
       <li>Photos you attach to your puppy or to care events are stored only on
-      your device. They are never uploaded.</li>
+      your device by default. Photos stay local unless you turn on the
+      optional cloud photo sync (Premium), which is off by default.</li>
+      <li>When you attach a file to a health record, that file is uploaded to
+      Cloudflare R2 (our storage provider) so everyone in your household can
+      open it. Attachments are readable only by household members and are
+      deleted when you remove the record or the attachment. They are covered
+      by the same delete-account and delete-household options as the rest of
+      your data.</li>
       <li>Small preferences (weight unit, the puppy selected on this device)
       are stored locally.</li>
     </ul>
@@ -84,9 +91,9 @@
     <h2>Service providers</h2>
     <p>We rely on: Google Firebase (sign-in, database, notifications,
     analytics, crash reporting), Google Play (payments), RevenueCat (purchase
-    management), and Cloudflare (delivering household push notifications).
-    These providers process data on our behalf under their own privacy
-    policies.</p>
+    management), and Cloudflare (delivering household push notifications and
+    storing health record attachments in R2). These providers process data on
+    our behalf under their own privacy policies.</p>
 
     <h2>Retention and deletion</h2>
     <ul>
