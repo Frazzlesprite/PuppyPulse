@@ -6,15 +6,25 @@
   <title>Privacy Policy - PuppyPulse</title>
   <meta name="description" content="How PuppyPulse handles your data: what is collected, what stays on your device, and how to delete it.">
   <meta name="theme-color" content="#2563EB">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F172A">
+  <link rel="canonical" href="https://puppypulse.xyz/privacy/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PuppyPulse">
+  <meta property="og:url" content="https://puppypulse.xyz/privacy/">
   <meta property="og:title" content="Privacy Policy - PuppyPulse">
   <meta property="og:description" content="How PuppyPulse handles your data: what is collected, what stays on your device, and how to delete it.">
-  <meta property="og:image" content="../assets/icon-512.png">
+  <meta property="og:image" content="https://puppypulse.xyz/assets/share-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy - PuppyPulse">
+  <meta name="twitter:description" content="What PuppyPulse collects, what stays on your device, and how to delete it.">
+  <meta name="twitter:image" content="https://puppypulse.xyz/assets/share-card.png">
   <link rel="icon" type="image/png" href="../assets/icon-512.png">
-  <link rel="apple-touch-icon" href="../assets/icon-512.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="site">
   <div class="wrap">
@@ -24,19 +34,27 @@
     </a>
     <nav>
       <a href="../#features">Features</a>
+      <a href="../#pricing">Pricing</a>
+      <a href="../support/">Support</a>
       <a href="../">Home</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
   <article class="article">
     <h1>Privacy Policy</h1>
-    <p class="updated">Effective date: October 10, 2026</p>
+    <p class="updated">Effective date: November 6, 2026</p>
 
     <p>PuppyPulse is a puppy care tracking app for new puppy parents. This
-    policy explains what information the app collects, why, and how you can
-    remove it. PuppyPulse is a tracking tool, not veterinary advice.</p>
+    policy explains what information the app collects, why, where it is stored,
+    and how you can remove it. PuppyPulse is a tracking tool, not veterinary
+    advice.</p>
+
+    <p>PuppyPulse is operated by Kalamari, Canberra, Australian Capital
+    Territory, Australia. Kalamari is the data controller for the information
+    described here. Contact us at
+    <a href="mailto:contact@puppypulse.xyz">contact@puppypulse.xyz</a>.</p>
 
     <h2>Information we collect</h2>
     <ul>
@@ -44,41 +62,50 @@
       we receive your name, email address, and a user identifier through
       Firebase Authentication. We use this to identify you and connect you to
       your household.</li>
-      <li><strong>Care data you enter.</strong> Your household name, puppy
-      profiles (name, breed, sex, birthday, weight, microchip number, and any
-      note you add), care events you log (for example potty, meals, naps,
-      walks, and their times and notes), reminders, care tasks, and health
-      records. This is stored in Google Cloud Firestore (region
-      australia-southeast1) and is visible to the members of your
-      household.</li>
+      <li><strong>Care data you enter.</strong> This includes your household
+      name and member roles, puppy profiles (name, breed, sex, birthday,
+      weight, microchip number, and any note you add), care events you log
+      (for example potty, meals, naps, walks, weight, and their times and
+      notes), reminders, care tasks and their assignments, health records,
+      milestones and their completion dates, training progress, day plan
+      preferences, progression photo entries (the stage, the capture date and
+      any note), and custom activity definitions. This is stored in Google
+      Cloud Firestore (region australia-southeast1) and is visible to the
+      members of your household.</li>
       <li><strong>Device tokens.</strong> A Firebase Cloud Messaging token is
       stored for your account so household notifications (for example "your
       partner logged a meal") can reach your device. Tokens are replaced when
       they change and are not used for advertising.</li>
       <li><strong>Purchase information.</strong> If you buy Premium, the
       purchase is processed by Google Play and managed through RevenueCat. We
-      receive your subscription status; we never see or store your card
-      details.</li>
+      receive your purchase and entitlement status for a one-time unlock; we
+      never see or store your card details.</li>
       <li><strong>Diagnostics.</strong> Firebase Analytics records basic usage
-      events (such as first open, household created, and purchases) and
-      Firebase Crashlytics collects crash reports with device model and OS
-      version. These help us keep the app working. We do not collect the
-      advertising identifier.</li>
+      events (such as first open, household created, puppy created, and
+      purchases) and Firebase Crashlytics collects crash reports with device
+      model, OS version and app version. These help us keep the app working.
+      We do not collect the advertising identifier.</li>
     </ul>
 
-    <h2>What stays on your device</h2>
+    <h2>Photos, attachments, and what stays on your device</h2>
     <ul>
-      <li>Photos you attach to your puppy or to care events are stored only on
-      your device by default. Photos stay local unless you turn on the
-      optional cloud photo sync (Premium), which is off by default.</li>
+      <li>Photos you attach to your puppy, to a care event, or to a
+      progression stage are stored only on your device by default. The app
+      keeps a file path, so other household members can see that an entry or
+      stage exists but not the picture.</li>
+      <li>Cloud photo sync is an optional Premium feature that is off by
+      default. When you turn it on, event photos are uploaded to Cloudflare R2
+      so everyone in your household can see them. You can turn it off again in
+      Settings.</li>
+      <li>Progression photos are never uploaded. Only the stage, the capture
+      date and any note you add are stored in Firestore.</li>
       <li>When you attach a file to a health record, that file is uploaded to
       Cloudflare R2 (our storage provider) so everyone in your household can
       open it. Attachments are readable only by household members and are
-      deleted when you remove the record or the attachment. They are covered
-      by the same delete-account and delete-household options as the rest of
-      your data.</li>
-      <li>Small preferences (weight unit, the puppy selected on this device)
-      are stored locally.</li>
+      deleted when you remove the record or the attachment.</li>
+      <li>Small preferences (dark mode, widget appearance, weight unit, the
+      puppy selected on this device, celebration effects, and whether photo
+      sync is on) are stored locally on the device.</li>
     </ul>
 
     <h2>What we do not do</h2>
@@ -92,17 +119,22 @@
     <p>We rely on: Google Firebase (sign-in, database, notifications,
     analytics, crash reporting), Google Play (payments), RevenueCat (purchase
     management), and Cloudflare (delivering household push notifications and
-    storing health record attachments in R2). These providers process data on
-    our behalf under their own privacy policies.</p>
+    storing photos and attachments in R2). These providers process data on our
+    behalf under their own privacy policies, and some of them process data
+    outside Australia.</p>
 
     <h2>Retention and deletion</h2>
     <ul>
       <li>You can delete your account inside the app: Settings, then Delete
-      account. This removes your account and the data you own.</li>
+      account. This removes your account and the data you own, including your
+      stored photos and attachments where it can.</li>
       <li>Data that belongs to a shared household (for example care logs you
       added) may remain for the other household members.</li>
       <li>You can also email us to request deletion, and we will remove your
-      account and personal information.</li>
+      account and personal information. The steps are on the
+      <a href="../delete-account/">delete your account</a> page.</li>
+      <li>Crash reports and analytics events are retained under the provider's
+      standard retention settings.</li>
     </ul>
 
     <h2>Security</h2>
@@ -115,7 +147,8 @@
 
     <h2>Changes</h2>
     <p>If this policy changes, we will update this page and the effective
-    date above.</p>
+    date above. Material changes will also be noted in the app's release
+    notes.</p>
 
     <h2>Contact</h2>
     <p>Questions or deletion requests:
@@ -128,8 +161,9 @@
 <footer class="site">
   <div class="wrap">
     <span>PuppyPulse - calm puppy care tracking</span>
-    <span>
-      <a href="../">Home</a> &nbsp;
+    <span class="links">
+      <a href="../support/">Support</a> &nbsp;
+      <a href="../terms/">Terms</a> &nbsp;
       <a href="mailto:contact@puppypulse.xyz">contact@puppypulse.xyz</a>
     </span>
   </div>

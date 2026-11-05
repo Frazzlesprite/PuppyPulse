@@ -4,17 +4,46 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PuppyPulse - Calm puppy care tracking</title>
-  <meta name="description" content="Track potty, meals, naps, and more in one tap, and share the care with your household. Calm, private puppy tracking for new puppy parents.">
+  <meta name="description" content="Track potty, meals, naps, health and training in one tap, and share the care with your household. One-time purchase, no subscription, no ads, no AI.">
   <meta name="theme-color" content="#2563EB">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F172A">
+  <link rel="canonical" href="https://puppypulse.xyz/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PuppyPulse">
+  <meta property="og:url" content="https://puppypulse.xyz/">
   <meta property="og:title" content="PuppyPulse - Calm puppy care tracking">
-  <meta property="og:description" content="Track potty, meals, naps, and more in one tap, and share the care with your household.">
-  <meta property="og:image" content="assets/icon-512.png">
+  <meta property="og:description" content="Track potty, meals, naps, health and training in one tap, and share the care with your household. One-time purchase, no subscription, no ads, no AI.">
+  <meta property="og:image" content="https://puppypulse.xyz/assets/share-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PuppyPulse, calm puppy care tracking">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PuppyPulse - Calm puppy care tracking">
+  <meta name="twitter:description" content="One-tap logging, a shared household, health records and a growth journey. One-time purchase, no subscription.">
+  <meta name="twitter:image" content="https://puppypulse.xyz/assets/share-card.png">
   <link rel="icon" type="image/png" href="assets/icon-512.png">
-  <link rel="apple-touch-icon" href="assets/icon-512.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PuppyPulse",
+    "url": "https://puppypulse.xyz/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Android",
+    "description": "A calm puppy care tracker for new puppy parents: one-tap logging, a shared household, health records, a growth journey and training checklist. One-time purchase, no subscription, no ads, no AI.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kalamari",
+      "url": "https://kalamari.club"
+    }
+  }
+  </script>
 </head>
 <body>
+
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="site">
   <div class="wrap">
@@ -24,32 +53,39 @@
     </a>
     <nav>
       <a href="#features">Features</a>
-      <a href="privacy/">Privacy policy</a>
+      <a href="#pricing">Pricing</a>
+      <a href="support/">Support</a>
+      <a href="privacy/">Privacy</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
 
   <section class="hero">
     <div class="wrap">
       <div class="copy">
-        <img class="wordmark" src="assets/wordmark.svg" alt="PuppyPulse">
+        <picture>
+          <source srcset="assets/wordmark-dark.svg" media="(prefers-color-scheme: dark)">
+          <img class="wordmark" src="assets/wordmark.svg" alt="PuppyPulse">
+        </picture>
         <h1>Calm puppy tracking for the first months.</h1>
         <p class="lede">Keep the basics in one place: potty, meals, naps, walks,
-        and everything in between. Log it in a tap, share it with your
-        household, and stop wondering whether it was ten minutes or two hours
-        ago.</p>
+        health and training. Log it in a tap, share it with your household, and
+        stop wondering whether it was ten minutes or two hours ago.</p>
+        <p class="meta">One-time purchase. No subscription, no ads, no AI.</p>
         <span class="badge">
           <svg viewBox="0 0 24 24" fill="#2563EB" aria-hidden="true">
             <path d="M4 3.5v17l15-8.5-15-8.5z"/>
           </svg>
           Coming soon to Google Play
+          <span class="tag">Android</span>
         </span>
       </div>
       <div class="media">
         <div class="phone">
-          <img src="assets/today.png" alt="The PuppyPulse Today screen, showing a reassurance card, potty estimate, quick add chips, and today's timeline">
+          <img src="assets/today.webp" width="720" height="1600"
+            alt="The PuppyPulse Today screen, showing a potty estimate, quick add chips, today's plan and the day's timeline">
         </div>
       </div>
     </div>
@@ -59,19 +95,20 @@
     <div class="wrap">
       <div class="copy">
         <h2>One tap, logged.</h2>
-        <p>Potty, poop, meals, water, treats, naps, walks, training, crate
-        time, meds, and more. Backdate an entry, add a note, or attach a photo.
-        A gentle estimate keeps you a step ahead of the next potty break.</p>
+        <p>Potty, poop, accidents, meals, water, treats, naps, walks, training,
+        crate time, meds, and more. Backdate an entry, add a note, or attach a
+        photo that stays on your device unless you choose to sync it.</p>
         <ul class="ticks">
           <li>Quick log sheet with a "When" selector for late entries</li>
-          <li>Duration activities with start and end times</li>
+          <li>Duration activities with start and finish times</li>
           <li>Weight tracking in kilograms or pounds</li>
           <li>Your own custom activities, like chew time or car rides</li>
         </ul>
       </div>
       <div class="media">
         <div class="phone">
-          <img src="assets/quick-log.png" alt="The quick log sheet, with activity tiles for potty, meals, naps, and more">
+          <img src="assets/quick-log.webp" width="720" height="1600" loading="lazy"
+            alt="The quick log sheet, with activity tiles for potty, meals, naps, and more">
         </div>
       </div>
     </div>
@@ -83,21 +120,74 @@
         <h2>Share the care.</h2>
         <p>Invite your partner or puppy sitter and everyone sees the same
         timeline, live. Hand off chores like washing the food bowls, leave them
-        open for anyone, or set them to repeat on a schedule.</p>
+        open for anyone, or set them to repeat on a schedule. An overdue task
+        gets a quiet red flag on Today, and a due-time notification opens the
+        task it is about.</p>
         <ul class="ticks">
-          <li>Family sync for the whole household</li>
-          <li>Care tasks with assignment, due times, and repeats</li>
-          <li>Multiple puppies, each with their own profile</li>
+          <li>Shared household with owner, caregiver and viewer roles</li>
+          <li>Care tasks with assignment, due times, repeats, archive and restore</li>
+          <li>Every caregiver sees the same live timeline</li>
+          <li>Multiple puppies, each with its own profile and an active puppy per device</li>
         </ul>
       </div>
       <div class="media">
         <div class="duo">
           <div class="phone">
-            <img src="assets/tasks.png" alt="Care tasks screen with open tasks and assignments">
+            <img src="assets/tasks.webp" width="720" height="1600" loading="lazy"
+              alt="Care tasks screen with open tasks, assignments, due times and a completed section">
           </div>
           <div class="phone">
-            <img src="assets/pets.png" alt="Pets screen listing two puppies with the active one marked">
+            <img src="assets/household.webp" width="720" height="1600" loading="lazy"
+              alt="Household screen listing an owner and a caregiver, with an invite code">
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature" id="plan">
+    <div class="wrap">
+      <div class="copy">
+        <h2>A plan for today, not just a log.</h2>
+        <p>Every day starts with a calm, age-based plan: potty breaks, meals,
+        a nap, play, training and wind down. Log as you go and the plan ticks
+        itself off. A gentle estimate tells you when the next potty is likely,
+        based on your puppy's age and what just happened.</p>
+        <ul class="ticks">
+          <li>Age-based potty hold, meal, nap, play and training times</li>
+          <li>Potty reminders after meals, plus meal and medication times</li>
+          <li>Custom reminders that repeat daily, weekly, monthly or yearly</li>
+          <li>Quiet hours, so nobody is pinged at 2 AM</li>
+          <li>Adjust the times and apply the plan to reminders in one tap <span class="tag">Premium</span></li>
+        </ul>
+      </div>
+      <div class="media">
+        <div class="phone">
+          <img src="assets/plan.webp" width="720" height="1600" loading="lazy"
+            alt="Puppy plan screen with age-based potty breaks, meal times, a nap, play and training, and an Apply to reminders button">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature flip" id="health">
+    <div class="wrap">
+      <div class="copy">
+        <h2>Health records that travel with you.</h2>
+        <p>Keep vaccinations, deworming, vet visits and medications in one
+        place, with dates you can backfill from before the app existed.
+        Medication schedules show the next dose and log it in a tap.</p>
+        <ul class="ticks">
+          <li>Vaccines, deworming, checkups, meds and your own records</li>
+          <li>Backdated completion dates for history you already have</li>
+          <li>Dose schedules with the next dose, and one-tap logging</li>
+          <li>Attach paperwork and lab results to a record <span class="tag">Premium</span></li>
+        </ul>
+      </div>
+      <div class="media">
+        <div class="phone">
+          <img src="assets/health.webp" width="720" height="1600" loading="lazy"
+            alt="Health records screen with an upcoming worm and flea tablet, and completed vaccinations with an attachment">
         </div>
       </div>
     </div>
@@ -107,25 +197,66 @@
     <div class="wrap">
       <div class="copy">
         <h2>See the patterns, celebrate the wins.</h2>
-        <p>Seven day trends for potty, sleep, and weight. Age-based guidance
-        for every stage, from the first night home to the second birthday,
-        with milestones you can tick off together.</p>
+        <p>Potty success, accidents, sleep and weight across 7, 30 or 90 days,
+        with clean-day streaks and week-over-week changes. Then a growth
+        journey that meets your puppy where they are, from the first night home
+        to the second birthday.</p>
         <ul class="ticks">
-          <li>Insight graphs for potty, sleep, and weight</li>
-          <li>A growth journey with short reads for each stage</li>
-          <li>Milestones across the whole life cycle</li>
-          <li>Vet-ready PDF and CSV export of your records</li>
+          <li>Success rate, current and best accident-free streaks</li>
+          <li>Monthly short reads and 24 milestones you tick off together</li>
+          <li>A 40-skill training checklist, written steps only</li>
+          <li>Vet-ready PDF and CSV exports, in full or selected sections <span class="tag">Premium</span></li>
         </ul>
       </div>
       <div class="media">
         <div class="duo">
           <div class="phone">
-            <img src="assets/insights.png" alt="Insights screen with potty, sleep, and weight charts">
+            <img src="assets/insights.webp" width="720" height="1600" loading="lazy"
+              alt="Insights screen with 7, 30 and 90 day switches, a streak summary, and potty and sleep charts">
           </div>
           <div class="phone">
-            <img src="assets/journey.png" alt="Journey screen with age-based guidance and milestones">
+            <img src="assets/journey.webp" width="720" height="1600" loading="lazy"
+              alt="Journey screen with the current week's guidance, milestones and training progress">
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="more">
+    <div class="wrap">
+      <h2>More in every pocket.</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Home screen widget</h3>
+          <p>Last potty, today's counts and the next estimate, with one-tap
+          Pee, Poop, Meal and Nap. Four styles to match your wallpaper.</p>
+        </article>
+        <article class="card">
+          <h3>Training checklist</h3>
+          <p>40 written skills across eight categories, from first potty
+          outside to a calm crate. Potty is free; the rest is Premium.</p>
+        </article>
+        <article class="card">
+          <h3>Progression photos</h3>
+          <p>One photo per stage, month by month to two years, then a
+          memory book PDF you can share. Premium.</p>
+        </article>
+        <article class="card">
+          <h3>Selective exports</h3>
+          <p>Pick the care log, health, milestones, training and tasks, add a
+          date range, and get clean CSVs plus a branded PDF. Premium.</p>
+        </article>
+        <article class="card">
+          <h3>Dark mode</h3>
+          <p>A slate palette for late-night feeds and 3 AM potty runs, with the
+          same calm layout.</p>
+        </article>
+        <article class="card">
+          <h3>Family notifications</h3>
+          <p>Milestone wins, task handoffs and a partner's late meal show up
+          quietly on the household's phones.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -138,9 +269,10 @@
         advertising identifier.</p>
       </div>
       <div>
-        <h3>Photos stay on your device</h3>
-        <p>Pet and event photos are stored locally. They are never uploaded,
-        not even to your household.</p>
+        <h3>Photos are yours</h3>
+        <p>Pet and event photos stay on your device by default, and are never
+        used for advertising. Cloud photo sync is opt-in, and health
+        attachments upload only when you add them.</p>
       </div>
       <div>
         <h3>No AI, no surprises</h3>
@@ -150,14 +282,84 @@
     </div>
   </section>
 
-  <section class="premium">
+  <section class="pricing" id="pricing">
     <div class="wrap">
-      <h2>Free to start. Premium when you need more.</h2>
-      <p>Free covers one puppy, core logging, one caregiver, and basic
-      reminders. Premium adds unlimited history, family sync for up to five
-      caregivers, multiple puppies, insight graphs, the growth journey,
-      custom activities, and vet-ready exports. Premium covers the whole
-      household.</p>
+      <h2>Free to start. Premium is one payment.</h2>
+      <p class="pricing-lede">Premium is a one-time unlock, not a subscription.
+      The price is shown in Google Play.</p>
+      <div class="plans">
+        <article class="plan">
+          <h3>Free</h3>
+          <p class="plan-sub">Everything you need for one puppy.</p>
+          <ul>
+            <li>One puppy, unlimited logging and notes</li>
+            <li>Today's guidance and the basic daily plan</li>
+            <li>Reminders, including quiet hours and medication doses</li>
+            <li>Health records and medication logging</li>
+            <li>Shared tasks with your household</li>
+            <li>Home screen widget</li>
+            <li>Last 30 days of history</li>
+          </ul>
+        </article>
+        <article class="plan premium">
+          <h3>Premium <span class="tag">One-time</span></h3>
+          <p class="plan-sub">Pay once, yours forever.</p>
+          <ul>
+            <li>Everything in Free, plus:</li>
+            <li>Your full history, not just 30 days</li>
+            <li>Plan times that fit your day, applied to reminders in one tap</li>
+            <li>Full insights: 7, 30 and 90 day trends, streaks and patterns</li>
+            <li>The whole Journey and the 40-skill training checklist</li>
+            <li>A month-by-month progression memory book</li>
+            <li>Multiple puppies</li>
+            <li>Unlimited custom activities (one is free)</li>
+            <li>Cloud photo sync and health record attachments</li>
+            <li>CSV and vet-ready PDF exports, in full or selected sections</li>
+          </ul>
+        </article>
+      </div>
+      <p class="fineprint">Premium unlocks this account only. Other household
+      members keep the free tier unless they unlock Premium too. Older logs are
+      never deleted; free simply shows the last 30 days.</p>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <details>
+        <summary>Is there a subscription?</summary>
+        <p>No. Premium is a single purchase, once. There is no monthly or yearly
+        plan, and no auto-renewal.</p>
+      </details>
+      <details>
+        <summary>Does my whole household need Premium?</summary>
+        <p>No. Sharing the timeline, tasks and reminders is part of the free
+        tier. Premium unlocks extra features on the account that buys it; other
+        members keep the free tier.</p>
+      </details>
+      <details>
+        <summary>Where are my photos stored?</summary>
+        <p>Pet and event photos are stored on your device by default. Event
+        photo sync is opt-in and Premium. Health attachments upload only when
+        you add them, and only members of your household can open them.</p>
+      </details>
+      <details>
+        <summary>What happens to my history if I stay on Free?</summary>
+        <p>Nothing is deleted. Free shows the last 30 days; Premium opens the
+        full history, including everything you logged before you upgraded.</p>
+      </details>
+      <details>
+        <summary>Which phones can run it?</summary>
+        <p>PuppyPulse is an Android app and will launch on Google Play. The home
+        screen widget is Android-only. An iPhone version is planned for later.</p>
+      </details>
+      <details>
+        <summary>How do I delete my account?</summary>
+        <p>In the app: Settings, then Delete account. You can also email us at
+        <a href="mailto:contact@puppypulse.xyz">contact@puppypulse.xyz</a>. See
+        <a href="delete-account/">Delete your account</a> for what is removed.</p>
+      </details>
     </div>
   </section>
 
@@ -166,14 +368,17 @@
 <footer class="site">
   <div class="wrap">
     <span>PuppyPulse - calm puppy care tracking</span>
-    <span>
+    <span class="links">
+      <a href="support/">Support</a> &nbsp;
       <a href="privacy/">Privacy policy</a> &nbsp;
+      <a href="delete-account/">Delete account</a> &nbsp;
+      <a href="terms/">Terms</a> &nbsp;
       <a href="mailto:contact@puppypulse.xyz">contact@puppypulse.xyz</a>
     </span>
     <div class="fine">
       PuppyPulse is a tracking tool, not veterinary advice. If something
-      worries you about your puppy's health, talk to your vet. Copyright 2026
-      PuppyPulse.
+      worries you about your puppy's health, talk to your vet. PuppyPulse is
+      made by Kalamari in Canberra, Australia. Copyright 2026 Kalamari.
     </div>
   </div>
 </footer>
