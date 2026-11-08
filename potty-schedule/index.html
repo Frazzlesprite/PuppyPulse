@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Puppy Potty Schedule by Age (Calculator) | PuppyPulse</title>
+  <meta name="description" content="Work out how often your puppy needs a potty break at their age, when the next one is likely, and how long a puppy can really hold it.">
+  <meta name="theme-color" content="#2563EB">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F172A">
+  <link rel="canonical" href="https://puppypulse.xyz/potty-schedule/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PuppyPulse">
+  <meta property="og:url" content="https://puppypulse.xyz/potty-schedule/">
+  <meta property="og:title" content="Puppy potty schedule by age">
+  <meta property="og:description" content="How often a puppy needs a potty break at their age, and when the next one is likely.">
+  <meta property="og:image" content="https://puppypulse.xyz/assets/share-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/icon-circle.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .calc-intro {
+      padding: 20px 0 28px;
+    }
+
+    .calc-intro .wrap {
+      max-width: 760px;
+    }
+
+    .calc-intro h1 {
+      margin: 0 0 10px;
+    }
+
+    .calc-intro .lede {
+      margin: 0;
+      max-width: 620px;
+    }
+
+    .calc-panel {
+      padding: 0 0 8px;
+    }
+
+    .calc-panel .wrap {
+      max-width: 760px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .calc-form {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .calc-form .field-wide {
+      grid-column: 1 / -1;
+    }
+
+    .calc-form label {
+      display: block;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .calc-form .opt {
+      font-weight: 500;
+      color: var(--muted);
+      font-size: 13px;
+      margin-left: 4px;
+    }
+
+    .calc-row {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    .calc-form input[type="number"],
+    .calc-form input[type="time"] {
+      font: inherit;
+      color: var(--ink);
+      background: var(--canvas);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .calc-form input[type="number"] {
+      max-width: 150px;
+    }
+
+    .calc-form input[type="time"] {
+      max-width: 200px;
+    }
+
+    .calc-form input:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+
+    .unit {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .unit label {
+      margin: 0;
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--ink);
+      background: var(--canvas);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .unit input {
+      accent-color: var(--blue);
+      margin: 0;
+    }
+
+    .unit label:has(input:checked) {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+      color: var(--blue-dark);
+      font-weight: 700;
+    }
+
+    .hint {
+      margin: 8px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .result {
+      background: var(--blue-soft);
+      border: 1px solid transparent;
+      border-radius: 18px;
+      padding: 24px;
+      min-height: 240px;
+    }
+
+    .result-eyebrow {
+      margin: 0 0 6px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blue-dark);
+    }
+
+    .result-lead {
+      margin: 0 0 18px;
+      font-size: 22px;
+      line-height: 1.35;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .result-lead strong {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .result-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .result-list li {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--ink);
+      border-top: 1px solid rgba(37, 99, 235, 0.12);
+      padding-top: 10px;
+    }
+
+    .result-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .result-list .k {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .result-empty {
+      margin: 0;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    .calc-section {
+      padding: 40px 0 8px;
+    }
+
+    .calc-section .wrap {
+      max-width: 760px;
+    }
+
+    .calc-section h2 {
+      margin: 32px 0 8px;
+    }
+
+    .calc-section h2:first-child {
+      margin-top: 0;
+    }
+
+    .calc-section p,
+    .calc-section li {
+      font-size: 16px;
+      color: var(--ink);
+    }
+
+    .calc-section ul {
+      padding-left: 22px;
+    }
+
+    .calc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 10px;
+      font-size: 15px;
+    }
+
+    .calc-table th,
+    .calc-table td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .calc-table th {
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .calc-table td:first-child {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .calc-note {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--blue);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 22px 0;
+    }
+
+    .calc-note p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .calc-cta {
+      padding: 8px 0 56px;
+    }
+
+    .calc-cta .wrap {
+      max-width: 760px;
+    }
+
+    .calc-cta .card-cta {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .calc-cta p {
+      margin: 0;
+      font-size: 16px;
+      max-width: 430px;
+    }
+
+    @media (max-width: 620px) {
+      .calc-form {
+        grid-template-columns: 1fr;
+        padding: 18px;
+      }
+
+      .result {
+        padding: 20px;
+      }
+
+      .result-list li {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .calc-cta .card-cta {
+        padding: 20px;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .result-list li {
+        border-top-color: rgba(96, 165, 250, 0.18);
+      }
+
+      .result {
+        border-color: rgba(96, 165, 250, 0.18);
+      }
+
+      .result-lead strong {
+        color: var(--blue);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <img src="../assets/icon-512.png" alt="">
+      <span>PuppyPulse</span>
+    </a>
+    <nav>
+      <a href="../#features">Features</a>
+      <a href="../#pricing">Pricing</a>
+      <a href="../support/">Support</a>
+      <a href="../privacy/">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="calc-intro">
+    <div class="wrap">
+      <h1>Puppy potty schedule by age</h1>
+      <p class="lede">How often a puppy needs to go out, when the next one is
+      likely, and how long they can really hold it. It takes ten seconds, and
+      there is nothing to sign up for.</p>
+    </div>
+  </section>
+
+  <section class="calc-panel">
+    <div class="wrap">
+      <form class="calc-form" id="calc-form" novalidate>
+        <div class="field-wide">
+          <label for="age">How old is your puppy?</label>
+          <div class="calc-row">
+            <input id="age" name="age" type="number" inputmode="numeric"
+              min="1" max="156" step="1" placeholder="10"
+              autocomplete="off" aria-describedby="age-hint">
+            <fieldset class="unit">
+              <legend class="sr-only">Age in weeks or months</legend>
+              <label><input type="radio" name="unit" value="weeks" checked> weeks</label>
+              <label><input type="radio" name="unit" value="months"> months</label>
+            </fieldset>
+          </div>
+          <p class="hint" id="age-hint">For example, 10 weeks, or 4 months.</p>
+        </div>
+
+        <div>
+          <label for="last">When did they last go out? <span class="opt">optional</span></label>
+          <input id="last" name="last" type="time">
+        </div>
+
+        <div>
+          <label for="meal">When did they last eat? <span class="opt">optional</span></label>
+          <input id="meal" name="meal" type="time">
+        </div>
+      </form>
+
+      <div class="result" id="result" aria-live="polite">
+        <noscript>
+          <p class="result-empty">This calculator needs JavaScript switched on.
+          The tables below answer the same questions.</p>
+        </noscript>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-section">
+    <div class="wrap">
+      <h2>How often should a puppy pee?</h2>
+      <p>Puppies need to go far more often than adult dogs, and the gap grows
+      as the bladder does. As a working rule, offer a break after every wake,
+      every meal, every drink and every play session, and on the clock in
+      between. The table below is the routine the calculator above uses.</p>
+
+      <table class="calc-table">
+        <thead>
+          <tr><th>Age</th><th>Offer a break about every</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Up to 8 weeks</td><td>40 minutes</td></tr>
+          <tr><td>9 to 12 weeks</td><td>55 minutes</td></tr>
+          <tr><td>13 to 16 weeks</td><td>80 minutes</td></tr>
+          <tr><td>17 to 24 weeks</td><td>115 minutes</td></tr>
+          <tr><td>6 to 12 months</td><td>160 minutes</td></tr>
+          <tr><td>Over a year</td><td>225 minutes</td></tr>
+        </tbody>
+      </table>
+
+      <p>These are routine intervals, not limits. Offering a break sooner is
+      never wrong, and a puppy who has just eaten, drunk, played hard or woken
+      up will usually need one before the clock says so.</p>
+
+      <h2>How long can a puppy hold their bladder?</h2>
+      <p>Longer than the routine above. That gap is why the answer you find
+      online seems to contradict the schedule you were given: one number is a
+      capacity and the other is a habit. Two rules of thumb are in common use.</p>
+
+      <ul>
+        <li><strong>One hour per month of age.</strong> The American Kennel
+        Club's <a href="https://www.akc.org/expert-advice/training/how-to-potty-train-a-puppy/">house-training guide</a>
+        gives roughly the same number of hours as the puppy's age in months,
+        up to about nine months to a year.</li>
+        <li><strong>Months plus one.</strong> The same idea with an extra hour,
+        used by <a href="https://www.preventivevet.com/dogs/how-to-potty-train-a-puppy">Preventive Vet</a>
+        among others.</li>
+      </ul>
+
+      <p>The AKC also notes that puppies cannot really control the bladder
+      until about 16 weeks, so before then these figures describe a hope as
+      much as a capacity.</p>
+
+      <table class="calc-table">
+        <thead>
+          <tr><th>Age</th><th>Usual ceiling, in a calm puppy</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>8 to 10 weeks</td><td>1 to 2 hours</td></tr>
+          <tr><td>3 months</td><td>3 to 4 hours</td></tr>
+          <tr><td>4 months</td><td>4 to 5 hours</td></tr>
+          <tr><td>6 months</td><td>about 6 hours</td></tr>
+          <tr><td>1 year and over</td><td>6 to 8 hours, though most dogs go out every 4 to 6</td></tr>
+        </tbody>
+      </table>
+
+      <p>The routine above is deliberately shorter, roughly half to two thirds
+      of the ceiling, because the point is to be outside before rather than
+      after. Plan to the routine. Stretch toward the ceiling only when the
+      puppy is staying dry.</p>
+
+      <h2>What about overnight?</h2>
+      <p>Young puppies wake in the night, and the trip should be as boring as
+      possible: out, toilet, praise quietly, straight back to bed. No play, no
+      fuss, no lights on. Most puppies still need one trip a night until around
+      four months, and many sleep through by six.</p>
+
+      <h2>When should I start expecting longer gaps?</h2>
+      <p>Only when the puppy is staying dry at the current interval. Then add
+      ten or fifteen minutes at a time, not an hour, and go back a step after
+      an accident. A puppy toilet training schedule should stretch with the
+      puppy rather than against them, and progress is rarely a straight line.</p>
+
+      <h2>Does this apply to adult dogs?</h2>
+      <p>The calculator covers puppies up to a year. Past that, a healthy adult
+      dog usually needs out every four to six hours during the day, and can
+      manage longer overnight. If a house-trained dog suddenly needs out far
+      more often, that is a vet question rather than a scheduling one.</p>
+
+      <h2>Is this veterinary advice?</h2>
+      <p>No. This is a rough guide based on age. Bladder capacity, water
+      intake, activity and health all change how often a puppy needs to go.</p>
+
+      <div class="calc-note">
+        <p>If your puppy is going far more or far less than this suggests, or
+        straining, or there is blood, talk to your vet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-cta">
+    <div class="wrap">
+      <div class="card-cta">
+        <p><strong>PuppyPulse does this all day.</strong> One-tap logging, a
+        live estimate, and reminders before the next one is due. Free to start,
+        and Premium is one payment, not a subscription.</p>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.puppypulse.app" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="#2563EB" aria-hidden="true">
+            <path d="M4 3.5v17l15-8.5-15-8.5z"/>
+          </svg>
+          Get PuppyPulse on Google Play
+          <span class="tag">Android</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>PuppyPulse - calm puppy care tracking</span>
+    <span class="links">
+      <a href="../">Home</a> &nbsp;
+      <a href="../support/">Support</a> &nbsp;
+      <a href="../privacy/">Privacy policy</a> &nbsp;
+      <a href="../terms/">Terms</a> &nbsp;
+      <a href="mailto:contact@puppypulse.xyz">contact@puppypulse.xyz</a>
+    </span>
+    <div class="fine">
+      This calculator is general guidance, not veterinary advice. If something
+      worries you about your puppy's health, talk to your vet. PuppyPulse is
+      made by Kalamari in Canberra, Australia. Copyright 2026 Kalamari.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // Same rules as the app: app/lib/domain/guidance/potty_guidance.dart and
+  // app/lib/domain/plan/day_plan.dart. Change them in one place, not two.
+  var BANDS = [
+    { max: 8, hold: 50 },
+    { max: 12, hold: 75 },
+    { max: 16, hold: 105 },
+    { max: 24, hold: 150 },
+    { max: 52, hold: 210 },
+    { max: Infinity, hold: 300 }
+  ];
+
+  function holdFor(weeks) {
+    for (var i = 0; i < BANDS.length; i++) {
+      if (weeks <= BANDS[i].max) return BANDS[i].hold;
+    }
+    return 300;
+  }
+
+  // Three quarters of the hold, rounded to five minutes, kept in 30 to 240.
+  function routineFor(weeks) {
+    var interval = Math.round((holdFor(weeks) * 0.75) / 5) * 5;
+    return Math.min(240, Math.max(30, interval));
+  }
+
+  function mealsFor(weeks) {
+    if (weeks < 12) return 4;
+    if (weeks < 24) return 3;
+    return 2;
+  }
+
+  function capacityFor(weeks) {
+    if (weeks < 12) return "1 to 2 hours";
+    if (weeks < 17) return "3 to 4 hours";
+    if (weeks < 24) return "4 to 5 hours";
+    if (weeks < 52) return "about 6 hours";
+    return "6 to 8 hours";
+  }
+
+  function overnightFor(weeks) {
+    if (weeks < 12) return "Expect one or two wake-ups. Take them out when they stir.";
+    if (weeks < 24) return "Most puppies still need one trip in the night.";
+    return "Most sleep through. Take them out if they wake and ask.";
+  }
+
+  function pacingFor(minutes, hold) {
+    var ratio = minutes / hold;
+    if (ratio < 1 / 3) return "Nice and fresh";
+    if (ratio < 0.75) return "Right on schedule";
+    if (ratio <= 1) return "A potty break is coming up soon";
+    if (ratio <= 1.5) return "The next one is likely close";
+    return "Worth offering a break";
+  }
+
+  function minutesFromTime(value) {
+    var parts = value.split(":");
+    if (parts.length !== 2) return null;
+    var h = parseInt(parts[0], 10);
+    var m = parseInt(parts[1], 10);
+    if (isNaN(h) || isNaN(m)) return null;
+    return h * 60 + m;
+  }
+
+  function formatClock(date) {
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var suffix = h >= 12 ? "PM" : "AM";
+    var hour12 = h % 12;
+    if (hour12 === 0) hour12 = 12;
+    return hour12 + ":" + (m < 10 ? "0" + m : m) + " " + suffix;
+  }
+
+  function isSameDay(a, b) {
+    return a.getFullYear() === b.getFullYear() &&
+      a.getMonth() === b.getMonth() &&
+      a.getDate() === b.getDate();
+  }
+
+  function humanise(minutes) {
+    if (minutes < 1) return "just now";
+    if (minutes < 90) {
+      return minutes + (minutes === 1 ? " minute ago" : " minutes ago");
+    }
+    var hours = Math.floor(minutes / 60);
+    var rest = minutes % 60;
+    if (hours < 24) {
+      return rest === 0
+        ? hours + (hours === 1 ? " hour ago" : " hours ago")
+        : hours + "h " + rest + "m ago";
+    }
+    var days = Math.round(hours / 24);
+    return days + (days === 1 ? " day ago" : " days ago");
+  }
+
+  function el(tag, className, text) {
+    var node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  }
+
+  var form = document.getElementById("calc-form");
+  var ageInput = document.getElementById("age");
+  var lastInput = document.getElementById("last");
+  var mealInput = document.getElementById("meal");
+  var result = document.getElementById("result");
+
+  function readUnit() {
+    var checked = form.querySelector('input[name="unit"]:checked');
+    return checked ? checked.value : "weeks";
+  }
+
+  function render() {
+    var raw = ageInput.value.trim();
+    var weeks;
+
+    if (raw === "") {
+      result.replaceChildren(el("p", "result-empty", "Enter an age to see the routine."));
+      return;
+    }
+
+    var value = parseFloat(raw);
+    var unit = readUnit();
+
+    if (isNaN(value) || value <= 0) {
+      result.replaceChildren(el("p", "result-empty",
+        "That is not an age. Try a number of weeks, like 10."));
+      return;
+    }
+
+    weeks = unit === "months" ? value * (365.25 / 12 / 7) : value;
+
+    if (weeks > 156) {
+      result.replaceChildren(el("p", "result-empty",
+        "This guide covers puppies up to three years old."));
+      return;
+    }
+
+    var displayAge = unit === "months"
+      ? (Math.round(value * 10) / 10) + (value === 1 ? " month" : " months")
+      : (Math.round(weeks * 10) / 10) + (weeks === 1 ? " week" : " weeks");
+
+    var hold = holdFor(weeks);
+    var routine = routineFor(weeks);
+    var meals = mealsFor(weeks);
+    var capacity = capacityFor(weeks);
+    var overnight = overnightFor(weeks);
+
+    var now = new Date();
+    var rows = [];
+
+    if (lastInput.value) {
+      var lastMinutes = minutesFromTime(lastInput.value);
+      if (lastMinutes !== null) {
+        var lastDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+        lastDate.setMinutes(lastMinutes);
+        if (lastDate > now) {
+          lastDate.setDate(lastDate.getDate() - 1);
+        }
+        var next = new Date(lastDate.getTime() + routine * 60000);
+        var elapsed = Math.max(0, Math.round((now - lastDate) / 60000));
+        rows.push(["Last potty", humanise(elapsed) + ". " +
+          pacingFor(elapsed, hold) + "."]);
+        if (next <= now) {
+          rows.push(["Next potty", "Due now. Take them out when you can."]);
+        } else {
+          rows.push(["Next potty", "Around " + formatClock(next) +
+            (isSameDay(next, now) ? "" : " tomorrow") + "."]);
+        }
+      }
+    } else {
+      var soon = new Date(now.getTime() + routine * 60000);
+      rows.push(["Next potty", "If they went out just now, around " +
+        formatClock(soon) + (isSameDay(soon, now) ? "" : " tomorrow") + "."]);
+    }
+
+    rows.push(["Bladder", "Usually " + capacity + " in a calm puppy."]);
+    rows.push(["Meals", meals + " a day at this age."]);
+    rows.push(["Overnight", overnight]);
+
+    if (mealInput.value) {
+      var mealMinutes = minutesFromTime(mealInput.value);
+      if (mealMinutes !== null) {
+        var mealDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+        mealDate.setMinutes(mealMinutes + 20);
+        rows.push(["After a meal", "They will usually need out about 20 minutes after eating, around " +
+          formatClock(mealDate) + "."]);
+      }
+    }
+
+    var card = el("div", "result-card");
+    card.appendChild(el("p", "result-eyebrow", "At " + displayAge));
+    var lead = el("p", "result-lead");
+    lead.appendChild(document.createTextNode("Offer a potty break about every "));
+    lead.appendChild(el("strong", null, routine + " minutes"));
+    lead.appendChild(document.createTextNode(" while they are awake."));
+    card.appendChild(lead);
+
+    var list = el("ul", "result-list");
+    rows.forEach(function (row) {
+      var li = document.createElement("li");
+      li.appendChild(el("span", "k", row[0]));
+      li.appendChild(el("span", "v", row[1]));
+      list.appendChild(li);
+    });
+    card.appendChild(list);
+
+    result.replaceChildren(card);
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    render();
+  });
+
+  ["input", "change"].forEach(function (name) {
+    form.addEventListener(name, render);
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
