@@ -228,6 +228,13 @@
       color: var(--muted);
     }
 
+    .result.is-empty {
+      background: transparent;
+      border-color: transparent;
+      padding: 6px 0;
+      min-height: 0;
+    }
+
     .calc-section {
       padding: 40px 0 8px;
     }
@@ -675,6 +682,7 @@
     var weeks;
 
     if (raw === "") {
+      result.classList.add("is-empty");
       result.replaceChildren(el("p", "result-empty", "Enter an age to see the routine."));
       return;
     }
@@ -683,6 +691,7 @@
     var unit = readUnit();
 
     if (isNaN(value) || value <= 0) {
+      result.classList.add("is-empty");
       result.replaceChildren(el("p", "result-empty",
         "That is not an age. Try a number of weeks, like 10."));
       return;
@@ -691,6 +700,7 @@
     weeks = unit === "months" ? value * (365.25 / 12 / 7) : value;
 
     if (weeks > 156) {
+      result.classList.add("is-empty");
       result.replaceChildren(el("p", "result-empty",
         "This guide covers puppies up to three years old."));
       return;
@@ -765,6 +775,7 @@
     });
     card.appendChild(list);
 
+    result.classList.remove("is-empty");
     result.replaceChildren(card);
   }
 
