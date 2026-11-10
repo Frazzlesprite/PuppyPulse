@@ -125,6 +125,11 @@ nav a:hover {
   color: var(--ink);
 }
 
+nav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 /* Hero */
 
 .hero {
@@ -663,7 +668,8 @@ footer.site .fine {
 
   nav a {
     margin-left: 0;
-    margin-right: 18px;
+    margin-right: 12px;
+    font-size: 14px;
   }
 }
 
