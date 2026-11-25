@@ -705,3 +705,66 @@ footer.site .fine {
     color: #0F172A;
   }
 }
+
+/* Long-form guides */
+.article .wrap {
+  max-width: 760px;
+}
+
+.article h2 {
+  margin: 2em 0 0.5em;
+}
+
+.article p {
+  margin: 0 0 1em;
+}
+
+.article ul {
+  margin: 0 0 1.2em;
+  padding-left: 1.2em;
+}
+
+.article li {
+  margin-bottom: 0.45em;
+}
+
+.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0 1.6em;
+  font-size: 0.95rem;
+}
+
+.article th,
+.article td {
+  text-align: left;
+  padding: 0.6em 0.7em;
+  border-bottom: 1px solid var(--line);
+}
+
+.article th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.article .card-cta {
+  margin-top: 2.4em;
+}
+
+.article .guides {
+  margin-top: 2.4em;
+  padding-top: 1.4em;
+  border-top: 1px solid var(--line);
+}
+
+.article .guides h2 {
+  margin-top: 0;
+  font-size: 1.05rem;
+}
+
+.article .guides ul {
+  padding-left: 1.1em;
+}
